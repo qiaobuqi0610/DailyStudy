@@ -50,17 +50,17 @@ public abstract class BaseData {
         }
     }
 
-    public void postData(String path, String args, HashMap<String, String> argsMap, int index, int validTime) {
+    public void postData(String path, String args, HashMap<String, String> argsMap, int validTime) {
         //判断传过来的时间
         if (validTime == 0) {
             //直接访问网络
-            postDataFromNet(path, args, argsMap, index, validTime);
+            postDataFromNet(path, args, argsMap, validTime);
         } else {
             //从 本地获取
             String data = getDataFromLocal(path, validTime);
             if (TextUtils.isEmpty(data)) {
                 //本地为空 请求网络
-                postDataFromNet(path, args, argsMap, index, validTime);
+                postDataFromNet(path, args, argsMap, validTime);
             } else {
                 //不为空 返回数据
                 setResultData(data);
@@ -68,8 +68,8 @@ public abstract class BaseData {
         }
     }
 
-    private void postDataFromNet(String path, String args, HashMap<String, String> argsMap, int index, int validTime) {
-        HttpManger.getMethod(path, args + index, new Callback<String>() {
+    private void postDataFromNet(String path, String args, HashMap<String, String> argsMap, int validTime) {
+        HttpManger.getMethod(path, args, new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 setResultData(response.body());
@@ -119,7 +119,7 @@ public abstract class BaseData {
             public void onResponse(Call<String> call, Response<String> response) {
                 writeDataToLoal(path, args, validTime, response.body());
                 setResultData(response.body());
-                LogUtils.i("TAG","BaseData数据"+response.body());
+                LogUtils.i("TAG", "BaseData数据" + response.body());
             }
 
             @Override

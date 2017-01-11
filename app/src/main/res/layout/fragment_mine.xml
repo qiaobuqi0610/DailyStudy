@@ -22,39 +22,44 @@
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
         android:layout_height="290px"
-        android:orientation="horizontal"
-        android:background="@mipmap/my2">
+        android:background="@mipmap/my2"
+        android:orientation="horizontal">
+
         <test.ds.com.dailystudy.view.RoundImageView
-            android:layout_marginLeft="95px"
-            android:layout_marginTop="60px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="95px"
+            android:layout_marginTop="60px"
             android:src="@mipmap/head1" />
+
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
-                android:layout_marginTop="85px"
-                android:layout_marginLeft="53px"
                 android:layout_width="wrap_content"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="53px"
+                android:layout_marginTop="85px"
+                android:background="@mipmap/landingbutton"
+                android:gravity="center"
                 android:text="立即登录"
                 android:textColor="#ffffff"
-                android:textSize="36px"
-                android:background="@mipmap/landingbutton"/>
+                android:textSize="36px" />
+
             <TextView
-                android:layout_marginTop="22px"
-                android:textColor="#ffffff"
-                android:textSize="24px"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="20px"
-                android:text="登陆后可云同步课程"/>
+                android:layout_marginTop="22px"
+                android:text="登陆后可云同步课程"
+                android:textColor="#ffffff"
+                android:textSize="24px" />
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
+
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
