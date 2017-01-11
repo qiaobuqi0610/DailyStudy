@@ -17,7 +17,6 @@ import java.util.concurrent.Executors;
 
 public class MyApplication extends Application {
 
-
     private static Context context;
     private static Handler handler;
     private static int mainThreadId;
