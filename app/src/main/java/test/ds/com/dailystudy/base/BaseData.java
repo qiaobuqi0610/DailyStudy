@@ -9,6 +9,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import test.ds.com.dailystudy.manger.HttpManger;
 import test.ds.com.dailystudy.utils.CommonUtils;
 import test.ds.com.dailystudy.utils.LogUtils;
 import test.ds.com.dailystudy.utils.MD5Encoder;
@@ -24,8 +28,9 @@ public abstract class BaseData {
     private final File fileDir;
 
     public BaseData() {
+
         File cacheDir = CommonUtils.getContext().getCacheDir();
-        fileDir = new File(cacheDir, "yunifang");
+        fileDir = new File(cacheDir, "dailystudy");
         if (!fileDir.exists()) {
             fileDir.mkdir();
         }
@@ -46,17 +51,17 @@ public abstract class BaseData {
         }
     }
 
-    public void postData(String path, HashMap<String, String> argsMap, int index, int validTime) {
+    public void postData(String path, String args, HashMap<String, String> argsMap, int index, int validTime) {
         //判断传过来的时间
         if (validTime == 0) {
             //直接访问网络
-            postDataFromNet(path, argsMap, index, validTime);
+            postDataFromNet(path, args, argsMap, index, validTime);
         } else {
             //从 本地获取
             String data = getDataFromLocal(path, index, validTime);
             if (TextUtils.isEmpty(data)) {
                 //本地为空 请求网络
-                postDataFromNet(path, argsMap, index, validTime);
+                postDataFromNet(path, args, argsMap, index, validTime);
             } else {
                 //不为空 返回数据
                 setResultData(data);
@@ -64,9 +69,18 @@ public abstract class BaseData {
         }
     }
 
-    private void postDataFromNet(String path, HashMap<String, String> argsMap, int index, int validTime) {
+    private void postDataFromNet(String path, String args, HashMap<String, String> argsMap, int index, int validTime) {
+        HttpManger.getMethod(path, args + index, new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                setResultData(response.body());
+            }
 
-
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                setResulttError(ShowingPage.StateType.STATE_LOAD_ERROR);
+            }
+        });
     }
 
 
@@ -80,7 +94,7 @@ public abstract class BaseData {
             String s = bufferedReader.readLine();
             long time = Long.parseLong(s);
             LogUtils.i("TAG****", "存储的时间----" + time);
-            //200  190
+            //判断时间按是否有效
             if (System.currentTimeMillis() < time) {
                 StringBuilder builder = new StringBuilder();
                 String lin = null;
@@ -89,7 +103,6 @@ public abstract class BaseData {
                 }
                 bufferedReader.close();
                 LogUtils.i("TAG****", "本地读取的数据----" + builder.toString());
-
                 return builder.toString();
             } else {
                 return null;
@@ -102,27 +115,38 @@ public abstract class BaseData {
     }
 
     private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
+        HttpManger.getMethod(path, path + index, new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                writeDataToLoal(path, args, index, validTime, response.body());
+                setResultData(response.body());
+            }
 
-        //writeDataToLoal(path, args, index, validTime);
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                setResulttError(ShowingPage.StateType.STATE_LOAD_ERROR);
+            }
+        });
 
+
+    }
+
+    private void writeDataToLoal(String path, String args, int index, int validTime, String data) {
+        try {
+            LogUtils.i("TAG****", "写入本地方法----");
+            File file = new File(fileDir, MD5Encoder.encode(path) + index);
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+            bufferedWriter.write(System.currentTimeMillis() + validTime + "\r\n");
+            bufferedWriter.write(data);
+            bufferedWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 
-private void writeDataToLoal(String path,String args,int index,int validTime,String data){
-        try{
-        LogUtils.i("TAG****","写入本地方法----");
-        File file=new File(fileDir,MD5Encoder.encode(path)+index);
-        BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter(file));
-        bufferedWriter.write(System.currentTimeMillis()+validTime+"\r\n");
-        bufferedWriter.write(data);
-        bufferedWriter.close();
-        }catch(Exception e){
-        e.printStackTrace();
-        }
-        }
-
-public abstract void setResultData(String data);
-
-protected abstract void setResultError(ShowingPage.StateType stateLoadError);
+    public abstract void setResultData(String data);
 
 
-        }
+    protected abstract void setResulttError(ShowingPage.StateType stateLoadError);
+
+}
