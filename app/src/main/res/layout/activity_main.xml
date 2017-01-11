@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <test.ds.com.dailystudy.view.LazyViewPager
+        android:id="@+id/main_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/main_rg">
+
+    </test.ds.com.dailystudy.view.LazyViewPager>
+
+    <RadioGroup
+        android:id="@+id/main_rg"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#f5f5f5"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_home"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:text="首页"
+            android:textColor="@color/main_rb_check" />
+
+        <RadioButton
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_type"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:text="课程分类"
+            android:textColor="@color/colorText" />
+
+        <RadioButton
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_circle"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:text="圈子"
+            android:textColor="@color/colorText" />
+
+        <RadioButton
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_mine"
+            android:gravity="center"
+            android:paddingTop="4dp"
+            android:text="我的"
+            android:textColor="@color/colorText" />
+    </RadioGroup>
+
+
+</RelativeLayout>
