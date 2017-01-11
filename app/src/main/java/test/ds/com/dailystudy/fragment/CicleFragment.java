@@ -12,11 +12,12 @@ import test.ds.com.dailystudy.base.BaseFragment;
 public class CicleFragment extends BaseFragment {
     @Override
     protected void onLoad() {
-
+       // this.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
     }
 
     @Override
     protected View createSuccessView() {
+
         return null;
     }
 }

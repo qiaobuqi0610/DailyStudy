@@ -28,7 +28,6 @@ public abstract class BaseData {
     private final File fileDir;
 
     public BaseData() {
-
         File cacheDir = CommonUtils.getContext().getCacheDir();
         fileDir = new File(cacheDir, "dailystudy");
         if (!fileDir.exists()) {
@@ -36,15 +35,15 @@ public abstract class BaseData {
         }
     }
 
-    public void getData(String path, String args, int index, int validTime) {
+    public void getData(String path, String args, int validTime) {
         if (validTime == 0) {
             LogUtils.i("TAG****", "直接访问网络----");
-            getDataFromNet(path, args, index, validTime);
+            getDataFromNet(path, args, validTime);
         } else {
             //从本地获取
-            String data = getDataFromLocal(path, index, validTime);
+            String data = getDataFromLocal(path, validTime);
             if (TextUtils.isEmpty(data)) {
-                getDataFromNet(path, args, index, validTime);
+                getDataFromNet(path, args, validTime);
             } else {
                 setResultData(data);
             }
@@ -58,7 +57,7 @@ public abstract class BaseData {
             postDataFromNet(path, args, argsMap, index, validTime);
         } else {
             //从 本地获取
-            String data = getDataFromLocal(path, index, validTime);
+            String data = getDataFromLocal(path, validTime);
             if (TextUtils.isEmpty(data)) {
                 //本地为空 请求网络
                 postDataFromNet(path, args, argsMap, index, validTime);
@@ -84,9 +83,9 @@ public abstract class BaseData {
     }
 
 
-    private String getDataFromLocal(String path, int index, int validTime) {
+    private String getDataFromLocal(String path, int validTime) {
         try {
-            File file = new File(fileDir, MD5Encoder.encode(path) + index);
+            File file = new File(fileDir, MD5Encoder.encode(path));
 
             if (!file.exists())
                 return "";
@@ -114,12 +113,13 @@ public abstract class BaseData {
         return null;
     }
 
-    private void getDataFromNet(final String path, final String args, final int index, final int validTime) {
-        HttpManger.getMethod(path, path + index, new Callback<String>() {
+    private void getDataFromNet(final String path, final String args, final int validTime) {
+        HttpManger.getMethod(path, path, new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                writeDataToLoal(path, args, index, validTime, response.body());
+                writeDataToLoal(path, args, validTime, response.body());
                 setResultData(response.body());
+                LogUtils.i("TAG","BaseData数据"+response.body());
             }
 
             @Override
@@ -131,10 +131,10 @@ public abstract class BaseData {
 
     }
 
-    private void writeDataToLoal(String path, String args, int index, int validTime, String data) {
+    private void writeDataToLoal(String path, String args, int validTime, String data) {
         try {
             LogUtils.i("TAG****", "写入本地方法----");
-            File file = new File(fileDir, MD5Encoder.encode(path) + index);
+            File file = new File(fileDir, MD5Encoder.encode(path));
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
             bufferedWriter.write(System.currentTimeMillis() + validTime + "\r\n");
             bufferedWriter.write(data);
