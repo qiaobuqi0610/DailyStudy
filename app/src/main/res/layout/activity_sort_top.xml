@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:divider="@drawable/sort_shape_divider_linear"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/sort_rl_item1"
             android:layout_width="fill_parent"
-            android:layout_height="44dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
 
 
             <ImageView
@@ -33,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="22px"
                 android:layout_toRightOf="@id/sort_icon_iv1"
                 android:textColor="#333333"
                 android:textSize="16sp" />
@@ -46,42 +46,42 @@
                 android:layout_centerVertical="true"
 
                 />
-        </RelativeLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
-    <com.yxjy.app.view.MyGriveView
+    <test.ds.com.dailystudy.view.MyGridView
         android:id="@+id/sort_gridview1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:columnWidth="90dp"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="20px"
         android:numColumns="3"
-        android:paddingBottom="4dp"
-        android:paddingLeft="9dp"
-        android:paddingRight="9dp"
+        android:paddingBottom="8px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="20px"
         android:visibility="gone">
-    </com.yxjy.app.view.MyGriveView>
+    </test.ds.com.dailystudy.view.MyGridView>
 
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="14px"
         android:background="#ffffff"
         android:divider="@drawable/sort_shape_divider_linear"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/sort_rl_item2"
             android:layout_width="fill_parent"
-            android:layout_height="44dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
 
 
             <ImageView
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="22px"
                 android:layout_toRightOf="@id/sort_icon_iv2"
                 android:gravity="center"
 
@@ -113,42 +113,42 @@
                 android:layout_centerVertical="true"
 
                 />
-        </RelativeLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
-    <com.yxjy.app.view.MyGriveView
+    <test.ds.com.dailystudy.view.MyGridView
         android:id="@+id/sort_gridview2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:columnWidth="90dp"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="20px"
         android:numColumns="3"
-        android:paddingBottom="4dp"
-        android:paddingLeft="9dp"
-        android:paddingRight="9dp"
+        android:paddingBottom="8px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="20px"
         android:visibility="gone">
 
-    </com.yxjy.app.view.MyGriveView>
+    </test.ds.com.dailystudy.view.MyGridView>
 
-    <LinearLayout
+    <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="14px"
         android:background="#ffffff"
         android:divider="@drawable/sort_shape_divider_linear"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <com.zhy.autolayout.AutoRelativeLayout
             android:id="@+id/sort_rl_item3"
             android:layout_width="fill_parent"
-            android:layout_height="44dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
 
 
             <ImageView
@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="11dp"
+                android:layout_marginLeft="22px"
                 android:layout_toRightOf="@id/sort_icon_iv3"
                 android:gravity="center"
 
@@ -180,25 +180,25 @@
                 android:layout_centerVertical="true"
 
                 />
-        </RelativeLayout>
+        </com.zhy.autolayout.AutoRelativeLayout>
 
-    </LinearLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
 
-    <com.yxjy.app.view.MyGriveView
+    <test.ds.com.dailystudy.view.MyGridView
         android:id="@+id/sort_gridview3"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:columnWidth="90dp"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="20px"
         android:numColumns="3"
-        android:paddingBottom="4dp"
-        android:paddingLeft="9dp"
-        android:paddingRight="9dp"
+        android:paddingBottom="8px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
-        android:visibility="gone"></com.yxjy.app.view.MyGriveView>
+        android:verticalSpacing="20px"
+        android:visibility="gone"></test.ds.com.dailystudy.view.MyGridView>
 
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
