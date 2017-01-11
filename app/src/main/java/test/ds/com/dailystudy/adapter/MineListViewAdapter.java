@@ -20,7 +20,7 @@ import test.ds.com.dailystudy.bean.MineBean;
 public class MineListViewAdapter extends BaseAdapter{
    private Context context;
     private ArrayList<MineBean> list;
-    private View view;
+
 
     public MineListViewAdapter(Context context, ArrayList<MineBean> list) {
         this.context = context;
@@ -44,15 +44,13 @@ public class MineListViewAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView==null)
-        {
-            view = View.inflate(context, R.layout.listview_item,null);
-        }
+            convertView = View.inflate(context, R.layout.listview_item,null);
+            ImageView imageView = (ImageView) convertView.findViewById(R.id.lv_image);
+            TextView textView = (TextView) convertView.findViewById(R.id.lv_text);
+            imageView.setImageResource(list.get(position).getImageid());
+            textView.setText(list.get(position).getName());
+             return convertView;
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.lv_image);
-        TextView textView = (TextView) view.findViewById(R.id.lv_text);
-        imageView.setImageResource(list.get(position).getImageid());
-        textView.setText(list.get(position).getName());
-        return view;
     }
+
 }

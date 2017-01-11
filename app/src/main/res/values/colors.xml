@@ -12,8 +12,11 @@
     <color name="twolist_item_check">#e7e7e7</color>
     <color name="red">#F95D51</color>
     <color name="main_rb_check">#F95D51</color>
+    <color name="colorPrimaryDark">#F95D51</color>
+    <color name="colorPrimary">#F95D51</color>
     <color name="go_comment_backgroud">#33CCCC</color>
     <color name="blue">#0000ff</color>
+    <color name="colorAccent">#333333</color>
     <color name="transparent">#00000000</color>
     <color name="course_detail_bg">#525252</color>
     <color name="text_normal_color">#666666</color>
