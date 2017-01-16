@@ -5,7 +5,7 @@ package test.ds.com.dailystudy.utils;
  * on 2017/1/14 11:19.
  */
 
-public class UrlUtils {
+public class URLUtils {
     //    主页面Url
     public static final String homeUrl = "http://www.meirixue.com/";
     public static final String homeArgs = "http://www.meirixue.com/api.php?a=indexv9&c=index";

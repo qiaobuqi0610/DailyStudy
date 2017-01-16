@@ -23,7 +23,7 @@ import test.ds.com.dailystudy.adapter.RecyclerViewHolder;
 import test.ds.com.dailystudy.base.BaseData;
 import test.ds.com.dailystudy.base.BaseFragment;
 import test.ds.com.dailystudy.bean.HomeBean;
-import test.ds.com.dailystudy.utils.UrlUtils;
+import test.ds.com.dailystudy.utils.URLUtils;
 import test.ds.com.dailystudy.view.GlideImageLoader;
 import test.ds.com.dailystudy.view.ShowingPage;
 
@@ -117,7 +117,7 @@ public class HomeFragment extends BaseFragment {
             protected void setResulttError(ShowingPage.StateType stateLoadError) {
                 HomeFragment.this.showingPage.showCurrentPage(ShowingPage.StateType.STATE_LOAD_ERROR);
             }
-        }.getData(UrlUtils.homeUrl, UrlUtils.homeArgs, BaseData.NOTIME);
+        }.getData(URLUtils.homeUrl, URLUtils.homeArgs, BaseData.NOTIME);
 
 
     }
