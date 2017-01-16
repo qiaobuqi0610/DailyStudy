@@ -1,8 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14px"
+        android:background="#ffffff"
+        android:divider="@drawable/sort_shape_divider_linear"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/sort_rl_item4"
+            android:layout_width="fill_parent"
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
 
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/sort_icon_iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/portfolio" />
+
+            <TextView
+                android:id="@+id/sort_tv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22px"
+                android:layout_toRightOf="@id/sort_icon_iv4"
+
+
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/sort_iv4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <test.ds.com.dailystudy.view.MyGridView
+        android:id="@+id/sort_gridview4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
+        android:gravity="center"
+        android:horizontalSpacing="20px"
+        android:numColumns="3"
+        android:paddingBottom="8px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20px"
+        android:visibility="gone" />
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14px"
+        android:background="#ffffff"
+        android:divider="@drawable/sort_shape_divider_linear"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/sort_rl_item5"
+            android:layout_width="fill_parent"
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
+
+            <ImageView
+                android:id="@+id/sort_icon_iv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/hat" />
+
+            <TextView
+                android:id="@+id/sort_tv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22px"
+                android:layout_toRightOf="@id/sort_icon_iv5"
+                android:gravity="center"
+
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/sort_iv5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <test.ds.com.dailystudy.view.MyGridView
+        android:id="@+id/sort_gridview5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
+        android:gravity="center"
+        android:horizontalSpacing="20px"
+        android:numColumns="3"
+
+        android:paddingBottom="8px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20px"
+        android:visibility="gone" />
+
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14px"
+        android:background="#ffffff"
+        android:divider="@drawable/sort_shape_divider_linear"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:id="@+id/sort_rl_item6"
+            android:layout_width="fill_parent"
+            android:layout_height="88px"
+            android:layout_marginLeft="30px"
+            android:layout_marginRight="30px">
+
+
+            <ImageView
+                android:id="@+id/sort_icon_iv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/language" />
+
+            <TextView
+                android:id="@+id/sort_tv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="22px"
+                android:layout_toRightOf="@id/sort_icon_iv6"
+                android:gravity="center"
+                android:textColor="#333333"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/sort_iv6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <test.ds.com.dailystudy.view.MyGridView
+        android:id="@+id/sort_gridview6"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:columnWidth="180px"
+        android:gravity="center"
+        android:horizontalSpacing="20px"
+        android:numColumns="3"
+        android:paddingBottom="20px"
+        android:paddingLeft="18px"
+        android:paddingRight="18px"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="20px"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#dddddd" />
+</com.zhy.autolayout.AutoLinearLayout>
