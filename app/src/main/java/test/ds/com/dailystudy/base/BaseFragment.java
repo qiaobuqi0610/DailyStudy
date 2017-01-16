@@ -11,41 +11,32 @@ import test.ds.com.dailystudy.view.ShowingPage;
 
 /**
  * Created by 乔智锋
- * on 2017/1/10 21:47.
+ * on 2017/1/13 21:21.
  */
 
 public abstract class BaseFragment extends Fragment {
-    private ShowingPage showingPage;
+
+    public ShowingPage showingPage;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         showingPage = new ShowingPage(getActivity()) {
+
             @Override
-            protected View createSuccessView() {
-                return BaseFragment.this.createSuccessView();
+            public View setSuccView() {
+                return BaseFragment.this.setSuccView();
             }
 
             @Override
-            protected void onLoad() {
-
+            public View setTitleView() {
+                return BaseFragment.this.setTitleView();
             }
         };
-
-        BaseFragment.this.onLoad();
         return showingPage;
     }
 
-    //继续抽象给继承自自己的Fragment
-    protected abstract void onLoad();
+    public abstract View setSuccView();
 
-    protected abstract View createSuccessView();
-
-    public void showCurrentPage(ShowingPage.StateType stateType) {
-        //调用showingPage的方法
-        if (showingPage != null) {
-            showingPage.showCurrentPage(stateType);
-        }
-    }
+    public abstract View setTitleView();
 }

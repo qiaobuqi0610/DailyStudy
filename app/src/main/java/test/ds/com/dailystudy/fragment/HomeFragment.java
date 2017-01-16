@@ -10,13 +10,14 @@ import test.ds.com.dailystudy.base.BaseFragment;
  */
 
 public class HomeFragment extends BaseFragment {
-    @Override
-    protected void onLoad() {
 
+    @Override
+    public View setSuccView() {
+        return null;
     }
 
     @Override
-    protected View createSuccessView() {
+    public View setTitleView() {
         return null;
     }
 }

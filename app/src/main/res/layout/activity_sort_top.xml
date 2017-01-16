@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
@@ -64,9 +63,7 @@
         android:paddingRight="18px"
         android:stretchMode="columnWidth"
         android:verticalSpacing="20px"
-        android:visibility="gone">
-    </test.ds.com.dailystudy.view.MyGridView>
-
+        android:visibility="gone" />
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
@@ -131,9 +128,7 @@
         android:paddingRight="18px"
         android:stretchMode="columnWidth"
         android:verticalSpacing="20px"
-        android:visibility="gone">
-
-    </test.ds.com.dailystudy.view.MyGridView>
+        android:visibility="gone" />
 
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="fill_parent"
@@ -167,7 +162,6 @@
                 android:layout_marginLeft="22px"
                 android:layout_toRightOf="@id/sort_icon_iv3"
                 android:gravity="center"
-
                 android:textColor="#333333"
                 android:textSize="16sp" />
 
@@ -177,9 +171,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-
-                />
+                android:layout_centerVertical="true" />
         </com.zhy.autolayout.AutoRelativeLayout>
 
     </com.zhy.autolayout.AutoLinearLayout>
@@ -198,7 +190,7 @@
         android:paddingRight="18px"
         android:stretchMode="columnWidth"
         android:verticalSpacing="20px"
-        android:visibility="gone"></test.ds.com.dailystudy.view.MyGridView>
+        android:visibility="gone" />
 
 
-</com.zhy.autolayout.AutoLinearLayout>
+</LinearLayout>

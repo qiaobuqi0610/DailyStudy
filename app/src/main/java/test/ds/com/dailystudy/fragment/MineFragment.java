@@ -23,26 +23,6 @@ public class MineFragment extends BaseFragment {
     private ArrayList<MineBean> arrayList = new ArrayList<>();
     private MineListViewAdapter mineListViewAdapter;
 
-    @Override
-    protected void onLoad() {
-        this.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
-    }
-
-    @Override
-    protected View createSuccessView() {
-        //查找控件
-        initview();
-        //数据源
-        initdata();
-        //设置适配器
-        if (mineListViewAdapter == null) {
-            mineListViewAdapter = new MineListViewAdapter(getActivity(), arrayList);
-        }else{
-            mineListViewAdapter.notifyDataSetChanged();
-        }
-        listView.setAdapter(mineListViewAdapter);
-        return view;
-    }
 
     private void initdata() {
         arrayList.clear();
@@ -55,8 +35,29 @@ public class MineFragment extends BaseFragment {
     }
 
     private void initview() {
+        this.showingPage.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
         view = View.inflate(getActivity(), R.layout.fragment_mine, null);
         listView = (ListView) view.findViewById(R.id.lv);
     }
 
+    @Override
+    public View setSuccView() {
+        //查找控件
+        initview();
+        //数据源
+        initdata();
+        //设置适配器
+        if (mineListViewAdapter == null) {
+            mineListViewAdapter = new MineListViewAdapter(getActivity(), arrayList);
+        } else {
+            mineListViewAdapter.notifyDataSetChanged();
+        }
+        listView.setAdapter(mineListViewAdapter);
+        return view;
+    }
+
+    @Override
+    public View setTitleView() {
+        return null;
+    }
 }
