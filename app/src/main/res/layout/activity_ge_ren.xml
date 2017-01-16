@@ -6,147 +6,164 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="test.ds.com.dailystudy.activity.GeRenActivity">
+
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:background="#f95d51"
-        android:layout_height="100px">
+        android:layout_height="100px"
+        android:background="#f95d51">
+
         <ImageView
-            android:onClick="back"
             android:id="@+id/login_back"
-            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/landback"/>
-        <TextView
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff"
-            android:textSize="50px"
-            android:text="个人信息"/>
-    </com.zhy.autolayout.AutoRelativeLayout>
-    <com.zhy.autolayout.AutoRelativeLayout
-        android:background="#f2f2f2"
-        android:layout_width="match_parent"
-        android:layout_height="250px">
+            android:onClick="back"
+            android:src="@mipmap/landback" />
 
         <TextView
-            android:layout_marginLeft="20px"
-            android:textColor="#333333"
-            android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="更换头像"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="个人信息"
+            android:textColor="#ffffff"
+            android:textSize="50px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:background="#f2f2f2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20px"
+            android:text="更换头像"
+            android:textColor="#333333"
+            android:textSize="40px" />
+
         <test.ds.com.dailystudy.view.RoundImageView
             android:id="@+id/xiang"
             android:layout_width="300px"
             android:layout_height="300px"
-            android:src="@mipmap/ic_launcher"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="60px"/>
+            android:layout_marginRight="60px"
+            android:src="@mipmap/ic_launcher" />
     </com.zhy.autolayout.AutoRelativeLayout>
-<com.zhy.autolayout.AutoRelativeLayout
-    android:background="#ffffff"
-    android:layout_width="match_parent"
-    android:layout_height="100px">
-    <TextView
-        android:layout_marginLeft="30px"
-        android:textColor="#333333"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:textSize="40px"
-        android:text="昵称"/>
-    <TextView
-        android:id="@+id/ge_name"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="30px"
-        android:textColor="#dedede"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:textSize="40px"
-        android:text="昵称"/>
-</com.zhy.autolayout.AutoRelativeLayout>
+
     <com.zhy.autolayout.AutoRelativeLayout
-        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="100px">
+        android:layout_height="100px"
+        android:background="#ffffff">
+
         <TextView
-            android:layout_marginLeft="30px"
-            android:textColor="#333333"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="手机号码"/>
+            android:layout_marginLeft="30px"
+            android:text="昵称"
+            android:textColor="#333333"
+            android:textSize="40px" />
+
         <TextView
+            android:id="@+id/ge_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="30px"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#f2f2f2"
-            android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="昵称"/>
+            android:text="昵称"
+            android:textColor="#dedede"
+            android:textSize="40px" />
     </com.zhy.autolayout.AutoRelativeLayout>
+
     <com.zhy.autolayout.AutoRelativeLayout
-        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="100px">
+        android:layout_height="100px"
+        android:background="#ffffff">
+
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="30px"
+            android:text="手机号码"
             android:textColor="#333333"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="性别"/>
-       <ImageView
-           android:layout_centerVertical="true"
-           android:layout_alignParentRight="true"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginRight="300px"
-           android:src="@mipmap/women"/>
-        <TextView
+            android:textSize="40px" />
 
-            android:layout_marginLeft="480px"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#f2f2f2"
-            android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="女生"/>
-        <ImageView
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="100px"
-            android:src="@mipmap/men"/>
-        <TextView
-
-            android:layout_marginLeft="680px"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30px"
+            android:text="昵称"
             android:textColor="#f2f2f2"
+            android:textSize="40px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#ffffff">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="40px"
-            android:text="男生"/>
+            android:layout_marginLeft="30px"
+            android:text="性别"
+            android:textColor="#333333"
+            android:textSize="40px" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="300px"
+            android:src="@mipmap/women" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="480px"
+            android:text="女生"
+            android:textColor="#f2f2f2"
+            android:textSize="40px" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="100px"
+            android:src="@mipmap/men" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="680px"
+            android:text="男生"
+            android:textColor="#f2f2f2"
+            android:textSize="40px" />
     </com.zhy.autolayout.AutoRelativeLayout>
 
     <Button
-        android:onClick="tuichu"
-        android:layout_marginTop="450px"
-        android:textColor="#fba39c"
-        android:background="@mipmap/landlogin"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="36px"
+        android:layout_marginTop="450px"
+        android:background="@mipmap/landlogin"
+        android:onClick="tuichu"
         android:text="退出登录"
-        android:id="@+id/button" />
+        android:textColor="#fba39c"
+        android:textSize="36px" />
 </com.zhy.autolayout.AutoLinearLayout>
