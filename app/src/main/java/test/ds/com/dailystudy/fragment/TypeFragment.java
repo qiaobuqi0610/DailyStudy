@@ -12,15 +12,14 @@ import test.ds.com.dailystudy.base.BaseFragment;
 public class TypeFragment extends BaseFragment {
 
 
-    @Override
-    protected void onLoad() {
-
-    }
 
     @Override
-    protected View createSuccessView() {
-
+    public View setSuccView() {
         return null;
     }
 
+    @Override
+    public View setTitleView() {
+        return null;
+    }
 }

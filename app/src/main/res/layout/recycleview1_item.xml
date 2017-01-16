@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="350px"
+        android:layout_weight="1">
+
+        <TextView
+
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:layout_marginTop="30px"
+            android:text="最强思路"
+            android:textColor="#ff00"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/titlett"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_marginLeft="20px"
+            android:text="最强思路"
+            android:textColor="#ebebeb"
+            android:textSize="25px" />
+
+        <ImageView
+            android:id="@+id/list_img"
+            android:layout_width="400px"
+            android:layout_height="300px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80px"
+            android:src="@mipmap/ic_launcher" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="350px"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="150px">
+
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="30px"
+                android:text="大大大大"
+                android:textColor="#6baaff"
+                android:textSize="30px" />
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name1"
+                android:textSize="20px"
+                android:layout_marginLeft="100px"
+                android:text="大大大大" />
+
+
+            <ImageView
+                android:id="@+id/list_img1"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="250px"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+        <View
+            android:layout_width="350px"
+            android:layout_height="2px" />
+
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="150px"
+            android:layout_marginTop="20px">
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="30px"
+                android:text="大大大大"
+                android:textColor="#ffbf44"
+                android:textSize="30px" />
+            <TextView
+                android:id="@+id/title2"
+                android:textSize="20px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name2"
+                android:layout_marginLeft="100px"
+                android:text="大大大大" />
+
+
+
+
+            <ImageView
+                android:id="@+id/list_img2"
+                android:layout_width="250px"
+                android:layout_height="150px"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="250px"
+                android:src="@mipmap/ic_launcher" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

@@ -10,14 +10,14 @@ import test.ds.com.dailystudy.base.BaseFragment;
  */
 
 public class CicleFragment extends BaseFragment {
+
     @Override
-    protected void onLoad() {
-       // this.showCurrentPage(ShowingPage.StateType.STATE_LOAD_SUCCESS);
+    public View setSuccView() {
+        return null;
     }
 
     @Override
-    protected View createSuccessView() {
-
+    public View setTitleView() {
         return null;
     }
 }

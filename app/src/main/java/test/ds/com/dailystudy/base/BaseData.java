@@ -8,11 +8,12 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.HashMap;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import test.ds.com.dailystudy.manger.HttpManger;
+import test.ds.com.dailystudy.manager.HttpManger;
 import test.ds.com.dailystudy.utils.CommonUtils;
 import test.ds.com.dailystudy.utils.LogUtils;
 import test.ds.com.dailystudy.utils.MD5Encoder;
@@ -50,17 +51,24 @@ public abstract class BaseData {
         }
     }
 
-    public void postData(String path, String args, HashMap<String, String> argsMap, int validTime) {
+    public void postData(boolean isReadCookie, boolean isSaveCookie,String path, String args, HashMap<String, String> argsMap, int validTime) {
+        //拼接map
+        Set<String> keySet = argsMap.keySet();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String key:keySet){
+            stringBuilder.append(key).append(argsMap.get(key));
+        }
+
         //判断传过来的时间
         if (validTime == 0) {
             //直接访问网络
-            postDataFromNet(path, args, argsMap, validTime);
+            postDataFromNet(isReadCookie,isSaveCookie,path, args,stringBuilder.toString(), argsMap, validTime);
         } else {
             //从 本地获取
             String data = getDataFromLocal(path, validTime);
             if (TextUtils.isEmpty(data)) {
                 //本地为空 请求网络
-                postDataFromNet(path, args, argsMap, validTime);
+                postDataFromNet(isReadCookie,isSaveCookie,path, args,stringBuilder.toString(), argsMap, validTime);
             } else {
                 //不为空 返回数据
                 setResultData(data);
@@ -68,16 +76,18 @@ public abstract class BaseData {
         }
     }
 
-    private void postDataFromNet(String path, String args, HashMap<String, String> argsMap, int validTime) {
-        HttpManger.getMethod(path, args, new Callback<String>() {
+    private void postDataFromNet(boolean isReadCookie, boolean isSaveCookie, final String path, final String args, final String mapArgs, HashMap<String, String> argsMap, final int validTime) {
+        HttpManger.postMethod(isReadCookie, isSaveCookie, path, args, argsMap, new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
+                //写入本地
+                writeDataToLoal(path,args+mapArgs,validTime,response.body());
                 setResultData(response.body());
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                setResulttError(ShowingPage.StateType.STATE_LOAD_ERROR);
+
             }
         });
     }
@@ -100,8 +110,8 @@ public abstract class BaseData {
                 while ((lin = bufferedReader.readLine()) != null) {
                     builder.append(lin);
                 }
-                bufferedReader.close();
                 LogUtils.i("TAG****", "本地读取的数据----" + builder.toString());
+                bufferedReader.close();
                 return builder.toString();
             } else {
                 return null;
@@ -114,7 +124,7 @@ public abstract class BaseData {
     }
 
     private void getDataFromNet(final String path, final String args, final int validTime) {
-        HttpManger.getMethod(path, path, new Callback<String>() {
+        HttpManger.getMethod(path, args, new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 writeDataToLoal(path, args, validTime, response.body());
@@ -125,6 +135,8 @@ public abstract class BaseData {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 setResulttError(ShowingPage.StateType.STATE_LOAD_ERROR);
+                LogUtils.i("TAG", "失败失败真失败" );
+
             }
         });
 

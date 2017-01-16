@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/others_image"
+        android:layout_width="300px"
+        android:layout_height="200px"
+        android:src="@mipmap/ic_launcher"/>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/others_course_name"
+            android:textColor="#0e0a0c"
+            android:layout_marginTop="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dadadadadad" />
+
+        <TextView
+            android:id="@+id/others_school_name"
+            android:layout_marginTop="20px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dadadadadad" />
+        <com.zhy.autolayout.AutoRelativeLayout
+            android:layout_marginTop="15px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/others_course_price"
+                android:textColor="#f95d51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asdadadadad"/>
+            <ImageView
+                android:layout_marginTop="10px"
+                android:layout_marginLeft="260px"
+                android:layout_width="25px"
+                android:layout_height="25px"
+                android:src="@mipmap/teacher"/>
+
+            <TextView
+                android:id="@+id/others_usercount"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="asdadadadad" />
+        </com.zhy.autolayout.AutoRelativeLayout>
+    </com.zhy.autolayout.AutoLinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

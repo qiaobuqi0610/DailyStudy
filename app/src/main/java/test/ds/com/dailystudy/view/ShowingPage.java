@@ -5,77 +5,65 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.zhy.autolayout.AutoLinearLayout;
+import com.zhy.autolayout.AutoRelativeLayout;
+
 import test.ds.com.dailystudy.R;
+import test.ds.com.dailystudy.interfac.OnReplayLoadLinstener;
 import test.ds.com.dailystudy.utils.CommonUtils;
+import test.ds.com.dailystudy.utils.NetUtils;
 
 /**
  * Created by 乔智锋
- * on 2017/1/10 21:19.
+ * on 2017/1/13 21:01.
  */
 
 public abstract class ShowingPage extends FrameLayout implements View.OnClickListener {
 
-    /**
-     * 定义状态
-     */
-
-    public static final int STATE_UNLOAD = 1;
-    public static final int STATE_LOADING = 2;
-    public static final int STATE_LOAD_ERROR = 3;
-    public static final int STATE_LOAD_EMPTY = 4;
-    public static final int STATE_LOAD_SUCCESS = 5;
-
-    public int currentState = STATE_UNLOAD;//得到当前的状态
-
-    private View showingpage_load_empty;
-    private View showingpage_loading;
-    private View showingpage_load_error;
-    private View showingpage_unload;
-    private View showingpage_success;
-
-    private final LayoutParams params;
+    public static final int STATE_LOADING = 1;
+    public static final int STATE_LOAD_ERROR = 2;
+    public static final int STATE_LOAD_SUCCESS = 3;
+    public int currentState = STATE_LOADING;
+    private final View show_error;
+    private final View show_loading;
+    private final AutoLinearLayout show_title;
+    private final AutoRelativeLayout myRealView;
+    private final Button replay_load;
+    private OnReplayLoadLinstener onReplayLoadLinstener;
 
     public ShowingPage(Context context) {
         super(context);
+        View view = CommonUtils.inflate(R.layout.showing_page);
+        show_error = view.findViewById(R.id.show_error);
+        replay_load = (Button) show_error.findViewById(R.id.showing_error_bt_reload);
+        replay_load.setOnClickListener(this);
+        show_loading = view.findViewById(R.id.show_loading);
+        show_title = (AutoLinearLayout) view.findViewById(R.id.show_title);
+        myRealView = (AutoRelativeLayout) view.findViewById(R.id.myRealView);
 
-        params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-
-        if (showingpage_load_empty == null) {
-            showingpage_load_empty = CommonUtils.inflate(R.layout.showingpage_load_empty);
-            this.addView(showingpage_load_empty, params);
+        //添加title
+        View titleView = setTitleView();
+        if (titleView != null) {
+            show_title.addView(titleView);
+        } else {
+            show_title.setVisibility(GONE);
+        }
+        View succView = setSuccView();
+        //添加成功视图
+        if (succView != null) {
+            myRealView.addView(succView);
+        } else {
+            myRealView.setVisibility(GONE);
         }
 
-        if (showingpage_loading == null) {
-            showingpage_loading = CommonUtils.inflate(R.layout.showingpage_loading);
-            this.addView(showingpage_loading, params);
-        }
-
-        if (showingpage_load_error == null) {
-            showingpage_load_error = CommonUtils.inflate(R.layout.showingpage_load_error);
-            Button btn_reload = (Button) showingpage_load_error.findViewById(R.id.showing_error_bt_reload);
-            btn_reload.setOnClickListener(this);
-            this.addView(showingpage_load_error, params);
-        }
-
-        if (showingpage_unload == null) {
-            showingpage_unload = CommonUtils.inflate(R.layout.showingpage_unload);
-            this.addView(showingpage_unload, params);
-        }
-
-        showPage();
-
-        onLoad();
-    }
-
-    /**
-     * 对外提供方法，设置当前状态
-     *
-     * @param stateType
-     */
-    public void showCurrentPage(StateType stateType) {
-        this.currentState = stateType.getCurrentState();
+        //添加到当前视图
+        this.addView(view);
         showPage();
     }
+
+    public abstract View setSuccView();
+
+    public abstract View setTitleView();
 
     private void showPage() {
         //在主线程执行
@@ -91,56 +79,41 @@ public abstract class ShowingPage extends FrameLayout implements View.OnClickLis
         /**
          * 选择当前的状态进行显示
          */
-        if (showingpage_unload != null) {
-            showingpage_unload.setVisibility(currentState == STATE_UNLOAD ? View.VISIBLE : View.GONE);
-        }
+        show_loading.setVisibility(currentState == STATE_LOADING ? View.VISIBLE : View.GONE);
+        show_error.setVisibility(currentState == STATE_LOAD_ERROR ? View.VISIBLE : View.GONE);
+        myRealView.setVisibility(currentState == STATE_LOAD_SUCCESS ? View.VISIBLE : View.GONE);
+    }
 
-        if (showingpage_load_empty != null) {
-            showingpage_load_empty.setVisibility(currentState == STATE_LOAD_EMPTY ? View.VISIBLE : View.GONE);
-        }
+    /**
+     * 对外提供方法，设置当前状态
+     *
+     * @param stateType
+     */
+    public void showCurrentPage(StateType stateType) {
+        this.currentState = stateType.getCurrentState();
+        showPage();
+    }
 
-        if (showingpage_load_error != null) {
-            showingpage_load_error.setVisibility(currentState == STATE_LOAD_ERROR ? View.VISIBLE : View.GONE);
-        }
-
-        if (showingpage_loading != null) {
-            showingpage_loading.setVisibility(currentState == STATE_LOADING ? View.VISIBLE : View.GONE);
-        }
-
-        if (showingpage_success == null && currentState == STATE_LOAD_SUCCESS) {
-            showingpage_success = createSuccessView();
-            this.addView(showingpage_success);
-        }
-
-        if (showingpage_success != null) {
-            showingpage_success.setVisibility(currentState == STATE_LOAD_SUCCESS ? View.VISIBLE : View.GONE);
+    @Override
+    public void onClick(View view) {
+        boolean haveNet = NetUtils.isHaveNet();
+        if (haveNet) {
+            currentState = STATE_LOADING;
+            if (onReplayLoadLinstener != null) {
+                onReplayLoadLinstener.repalyData();
+            }
         }
     }
 
-    //获取成功界面（每一个成功的界面都不同）
-    protected abstract View createSuccessView();
-
-    //数据加载
-    protected abstract void onLoad();
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            //重新请求
-            case R.id.showing_error_bt_reload:
-                if (currentState != STATE_UNLOAD)
-                    currentState = STATE_UNLOAD;
-                showPage();
-                onLoad();
-                break;
-        }
+    public void setReplayLoadLindener(OnReplayLoadLinstener onReplayLoadLinstener) {
+        this.onReplayLoadLinstener = onReplayLoadLinstener;
     }
 
     /**
      * 定义枚举类，限制状态类型
      */
     public enum StateType {
-        STATE_LOAD_ERROR(3), STATE_LOAD_EMPTY(4), STATE_LOAD_SUCCESS(5);
+        STATE_LOAD_SUCCESS(3), STATE_LOAD_ERROR(2), STATE_LOADING(1);
         private final int currentState;
 
         public int getCurrentState() {
