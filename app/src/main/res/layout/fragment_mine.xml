@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zhy.autolayout.AutoLinearLayout
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="80px"
         android:background="@mipmap/my">
 
         <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="270px"
             android:text="我的主页"
             android:textColor="#ffffff"
-            android:textSize="50px" />
-    </com.zhy.autolayout.AutoLinearLayout>
+            android:textSize="40px" />
+    </com.zhy.autolayout.AutoRelativeLayout>
 
     <com.zhy.autolayout.AutoLinearLayout
+        android:id="@+id/old"
         android:layout_width="match_parent"
-        android:layout_height="290px"
+        android:layout_height="300px"
         android:background="@mipmap/my2"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible">
 
         <test.ds.com.dailystudy.view.RoundImageView
+            android:id="@+id/touxiang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="95px"
@@ -40,8 +46,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/login_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="53px"
-                android:layout_marginTop="85px"
+                android:layout_marginTop="50px"
                 android:background="@mipmap/landingbutton"
                 android:gravity="center"
                 android:text="立即登录"
@@ -60,10 +72,17 @@
         </com.zhy.autolayout.AutoLinearLayout>
     </com.zhy.autolayout.AutoLinearLayout>
 
+    <include
+        android:id="@+id/later"
+        layout="@layout/title"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="400px"/>
+
     <ListView
+        android:layout_marginLeft="25px"
+        android:background="#ffffff"
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </ListView>
+        android:layout_height="match_parent"></ListView>
 </com.zhy.autolayout.AutoLinearLayout>

@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Process;
 
+import com.umeng.socialize.PlatformConfig;
+import com.umeng.socialize.UMShareAPI;
 import com.zhy.autolayout.config.AutoLayoutConifg;
 
 import java.util.concurrent.ExecutorService;
@@ -27,10 +29,14 @@ public class MyApplication extends Application {
         super.onCreate();
         //鸿洋适配器初始化
         AutoLayoutConifg.getInstance().useDeviceSize();
+        UMShareAPI.get(this);
         context = getApplicationContext();
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
         handler = new Handler();//创建Handle
         mainThreadId = Process.myTid();//得到主线程id
         threadPool = Executors.newFixedThreadPool(5);//创建线程池
+        PlatformConfig.setQQZone("100424468", "c7394704798a158208a74ab60104f0ba");
+        UMShareAPI.get(this);
     }
 
     public static Context getContext() {

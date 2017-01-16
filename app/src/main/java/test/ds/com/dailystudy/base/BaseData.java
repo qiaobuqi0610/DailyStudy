@@ -13,7 +13,7 @@ import java.util.Set;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import test.ds.com.dailystudy.manger.HttpManger;
+import test.ds.com.dailystudy.manager.HttpManger;
 import test.ds.com.dailystudy.utils.CommonUtils;
 import test.ds.com.dailystudy.utils.LogUtils;
 import test.ds.com.dailystudy.utils.MD5Encoder;
