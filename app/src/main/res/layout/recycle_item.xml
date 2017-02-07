@@ -5,7 +5,7 @@
 
     android:layout_centerVertical="true">
 
-    <test.ds.com.dailystudy.view.CircleImageView
+   <test.ds.com.dailystudy.view.CircleImageView
         android:id="@+id/ho_img"
         android:layout_width="100px"
         android:layout_height="100px"

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search_friend"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="@color/red">
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back" />
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="630px"
+            android:layout_height="63px"
+            android:layout_centerInParent="true"
+            android:background="@drawable/search_bg"
+            android:hint="搜索好友"
+            android:paddingLeft="70px"
+            android:textSize="20px" />
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignLeft="@id/search_et"
+            android:layout_alignTop="@id/search_et"
+            android:padding="11px"
+            android:src="@drawable/search" />
+
+        <ImageView
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_alignRight="@id/search_et"
+            android:layout_alignTop="@id/search_et"
+            android:padding="11px"
+            android:src="@drawable/cancel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5px"
+            android:textSize="15sp"
+            android:text="取消"
+            android:textColor="#fff" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>

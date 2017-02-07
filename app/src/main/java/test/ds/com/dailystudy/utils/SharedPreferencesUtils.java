@@ -51,10 +51,10 @@ public class SharedPreferencesUtils {
 		}
 		return sp.getString(key, defValue);
 	}
-
 	public static void clearString(Context context, String key, String value) {
 		if (sp != null)
 			sp = context.getSharedPreferences(SP_NAME, 0);
 		sp.edit().clear().commit();
 	}
+	
 }

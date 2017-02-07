@@ -71,6 +71,10 @@
         <activity android:name=".activity.GeRenActivity" />
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".activity.ClassSortActivity" />
+        <activity android:name=".activity.SearchFriendActivity" />
+        <activity android:name=".activity.ContentMessageAcitivity"></activity>
+        <activity android:name=".activity.GeRenActivity" />
+        <activity android:name=".activity.ClassSortActivity" />
         <activity android:name=".activity.XiangActivity" />
         <activity android:name=".activity.ShezhiActivity"></activity>
     </application>
