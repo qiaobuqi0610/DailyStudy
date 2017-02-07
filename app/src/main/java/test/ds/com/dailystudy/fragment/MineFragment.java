@@ -43,6 +43,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private String name;
     private String icon;
     private AutoRelativeLayout relativeLayout;
+
     @Override
     public View setSuccView() {
         //查找控件
@@ -70,6 +71,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     public View setTitleView() {
         return null;
     }
+
     private void initdata() {
         arrayList.clear();
         arrayList.add(new MineBean(R.mipmap.mya, "我的课程"));
@@ -103,9 +105,9 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 startActivity(new Intent(getActivity(), MineLoginActivity.class));
                 break;
             case R.id.limian:
-                Intent intent=new Intent(getActivity(), GeRenActivity.class);
-                intent.putExtra("name",name);
-                intent.putExtra("icon",icon);
+                Intent intent = new Intent(getActivity(), GeRenActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("icon", icon);
                 startActivity(intent);
                 break;
 
@@ -135,7 +137,6 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             old.setVisibility(View.VISIBLE);
 
         }
-
 
     }
 }

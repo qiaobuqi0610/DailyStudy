@@ -15,9 +15,6 @@ import test.ds.com.dailystudy.interfac.ProjectAPI;
 import test.ds.com.dailystudy.interfac.ReadCookiesInterceptor;
 import test.ds.com.dailystudy.interfac.SaveCookiesInterceptor;
 
-/**
- * Created by zhiyuan on 17/1/11.
- */
 
 public class HttpManger {
     public static void getMethod(String baseUrl, String url, final Callback<String> callback) {

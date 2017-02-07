@@ -14,4 +14,9 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
+
+    <!-- 设置tablayout字体大小-->
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_16_sp</item>
+    </style>
 </resources>

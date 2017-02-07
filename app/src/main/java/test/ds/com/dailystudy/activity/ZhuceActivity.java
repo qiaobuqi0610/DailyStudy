@@ -3,6 +3,7 @@ package test.ds.com.dailystudy.activity;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -21,16 +22,20 @@ public class ZhuceActivity extends BaseActivity implements View.OnClickListener 
         zhuce_back = (ImageView) findViewById(R.id.zhuce_back);
         zhuce_back.setOnClickListener(this);
         zhuce_pwd = (EditText) findViewById(R.id.zhuce_pwd);
+        Button send_msg = (Button) findViewById(R.id.send_msg);
+        send_msg.setOnClickListener(this);
         zhuce_pwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
     }
 
     @Override
     public void onClick(View v) {
-           switch (v.getId())
-           {
-               case R.id.zhuce_back:
-                   finish();
-                   break;
-           }
+        switch (v.getId()) {
+            case R.id.zhuce_back:
+                finish();
+                break;
+            case R.id.send_msg:
+
+                break;
+        }
     }
 }
