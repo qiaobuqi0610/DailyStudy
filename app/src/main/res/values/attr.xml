@@ -2,8 +2,4 @@
 <resources>
     <attr name="borderRadius" format="dimension" />
 
-    <declare-styleable name="RoundImageView">
-        <attr name="borderRadius" />
-        <attr name="type" />
-    </declare-styleable>
 </resources>

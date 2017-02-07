@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.zhy.autolayout.AutoFrameLayout
+        android:id="@+id/frame_course_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:id="@+id/linear_activity_course_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/activity_title_height">
+
+                    <ImageView
+                        android:id="@+id/setting_back"
+                        android:layout_width="90px"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:paddingRight="40px"
+                        android:src="@mipmap/back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:gravity="center"
+                        android:text="课程详情"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/activity_text_size" />
+
+                    <ImageView
+                        android:id="@+id/share"
+                        android:layout_width="90px"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="40px"
+                        android:src="@mipmap/share" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="20px">
+
+                <com.zhy.autolayout.AutoFrameLayout
+                    android:id="@+id/iv_course_detail_pic"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10px"
+                    android:layout_weight="3">
+
+                    <ImageView
+                        android:id="@+id/iv_course_detail_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/play" />
+                </com.zhy.autolayout.AutoFrameLayout>
+
+                <com.zhy.autolayout.AutoRelativeLayout
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/tv_course_detail_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="20px"
+                        android:paddingTop="10px"
+                        android:text="女神修炼课"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_course_detail_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:paddingBottom="64px"
+                        android:textColor="#62e115"
+                        android:textSize="12sp"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/textview_course_detail_free"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:paddingLeft="20px"
+                        android:text="免费"
+                        android:textColor="@color/red"
+                        android:textSize="14sp" />
+                </com.zhy.autolayout.AutoRelativeLayout>
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <com.zhy.autolayout.AutoLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72px"
+                android:layout_marginTop="20px"
+                android:background="#7f7f7f"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:id="@+id/tv_course_detail_totaltime"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_course_detail_grade"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_course_detail_person_num"
+                    android:layout_width="0px"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </com.zhy.autolayout.AutoLinearLayout>
+
+            <RadioGroup
+                android:id="@+id/rg_course_detail"
+                android:layout_width="match_parent"
+                android:layout_height="80px"
+                android:background="#fff"
+                android:divider="?android:attr/dividerHorizontal"
+                android:orientation="horizontal"
+                android:paddingBottom="10px"
+                android:paddingTop="10px"
+                android:showDividers="middle">
+
+                <RadioButton
+                    android:id="@+id/rb_course_detail_detail"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="详情"
+                    android:textColor="@drawable/text_color_selector"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_course_detail_catalog"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="目录"
+                    android:textColor="@drawable/text_color_selector"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_course_detail_comment"
+                    android:layout_width="0px"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:paddingLeft="0px"
+                    android:text="评论"
+                    android:textColor="@drawable/text_color_selector"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <com.zhy.autolayout.AutoFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="4px"
+                android:background="@color/white">
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_gravity="bottom"
+                    android:background="#c8c8c8" />
+            </com.zhy.autolayout.AutoFrameLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_course_detail"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="2"
+                android:background="@color/white" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#d9d9d9" />
+
+            <com.zhy.autolayout.AutoRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="90px"
+                android:background="@color/common_background_color">
+
+                <ImageView
+                    android:id="@+id/iv_course_detail_collect"
+                    android:layout_width="80px"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/collect_radiobutton_bg_selector" />
+
+                <Button
+                    android:id="@+id/btn_course_detail_join"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90px"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="16px"
+                    android:layout_marginTop="12px"
+                    android:background="@mipmap/study"
+                    android:gravity="center"
+                    android:text="参与课程"
+                    android:textColor="@color/white"
+                    android:textSize="15dp" />
+            </com.zhy.autolayout.AutoRelativeLayout>
+        </com.zhy.autolayout.AutoLinearLayout>
+    </com.zhy.autolayout.AutoFrameLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

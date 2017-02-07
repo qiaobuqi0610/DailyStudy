@@ -49,6 +49,7 @@
         <activity android:name=".base.BaseActivity" />
         <activity android:name=".activity.MineLoginActivity" />
         <activity android:name=".activity.ZhuceActivity" />
+        <activity android:name=".activity.Activity_Xq"/>
         <!-- 第三方 -->
         <activity
             android:name="com.tencent.tauth.AuthActivity"

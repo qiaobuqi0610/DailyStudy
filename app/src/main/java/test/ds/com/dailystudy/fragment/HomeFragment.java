@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import test.ds.com.dailystudy.R;
+import test.ds.com.dailystudy.activity.Activity_Xq;
 import test.ds.com.dailystudy.activity.XiangActivity;
 import test.ds.com.dailystudy.adapter.RecyclerAdapter;
 import test.ds.com.dailystudy.adapter.RecyclerViewHolder;
@@ -158,8 +159,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 holder.findView(R.id.others_image).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        Intent intent = new Intent(getActivity(), Activity_Xq.class);
                         intent.putExtra("id",indexothers.get(position).getCid());
+                        intent.putExtra("image",indexothers.get(position).getCourse_pic());
+                        intent.putExtra("name",indexothers.get(position).getCourse_name());
+                        intent.putExtra("price",indexothers.get(position).getCourse_price());
                         startActivity(intent);
                     }
                 });
@@ -190,8 +194,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 holder.findView(top_image).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        Intent intent = new Intent(getActivity(), Activity_Xq.class);
                         intent.putExtra("id",top.get(position).getCid());
+                        intent.putExtra("image",top.get(position).getCourse_pic());
+                        intent.putExtra("name",top.get(position).getCourse_name());
+                        intent.putExtra("price",top.get(position).getCourse_price());
                         startActivity(intent);
                     }
                 });
@@ -225,8 +232,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 holder.findView(listiew_image).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        Intent intent = new Intent(getActivity(), Activity_Xq.class);
                         intent.putExtra("id",listview.get(position).getCid());
+                        intent.putExtra("image",listview.get(position).getCourse_pic());
+                        intent.putExtra("name",listview.get(position).getCourse_name());
+                        intent.putExtra("price",listview.get(position).getCourse_price());
                         startActivity(intent);
                     }
                 });
@@ -260,8 +270,11 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                 holder.findView(R.id.hor_image).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        Intent intent = new Intent(getActivity(), Activity_Xq.class);
                         intent.putExtra("id",hotcourse.get(position).getCid());
+                        /*intent.putExtra("image",hotcourse.get(position).getImg());
+                        intent.putExtra("name",hotcourse.get(position).getName());
+                        intent.putExtra("price",hotcourse.get(position).get);*/
                         startActivity(intent);
                     }
                 });
@@ -356,11 +369,17 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
             case R.id.list_img:
                 Intent intent=new Intent(getActivity(),XiangActivity.class);
                 intent.putExtra("id",adlist.get(0).getUrl());
+               /* intent.putExtra("image",adlist.get(0).getCourse_pic());
+                intent.putExtra("name",adlist.get(0).getCourse_name());
+                intent.putExtra("price",adlist.get(0).getCourse_price());*/
                 startActivity(intent);
                 break;
             case R.id.list_img1:
                 Intent intent1=new Intent(getActivity(),XiangActivity.class);
                 intent1.putExtra("id",adlist.get(1).getUrl());
+               /* intent1.putExtra("image",adlist.get(0).getCourse_pic());
+                intent1.putExtra("name",adlist.get(0).getCourse_name());
+                intent1.putExtra("price",adlist.get(0).getCourse_price());*/
                 startActivity(intent1);
                 break;
             case R.id.list_img2:
