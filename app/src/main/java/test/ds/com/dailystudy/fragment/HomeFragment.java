@@ -1,5 +1,6 @@
 package test.ds.com.dailystudy.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,11 +14,13 @@ import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
+import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import test.ds.com.dailystudy.R;
+import test.ds.com.dailystudy.activity.XiangActivity;
 import test.ds.com.dailystudy.adapter.RecyclerAdapter;
 import test.ds.com.dailystudy.adapter.RecyclerViewHolder;
 import test.ds.com.dailystudy.base.BaseData;
@@ -27,12 +30,15 @@ import test.ds.com.dailystudy.utils.URLUtils;
 import test.ds.com.dailystudy.view.GlideImageLoader;
 import test.ds.com.dailystudy.view.ShowingPage;
 
+import static test.ds.com.dailystudy.R.id.listiew_image;
+import static test.ds.com.dailystudy.R.id.top_image;
+
 /**
  * Created by 乔智锋
  * on 2017/1/10 21:48.
  */
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
     private View view;
     private ArrayList<String> imageUrlList = new ArrayList<>();
     private HomeBean roolData;
@@ -59,6 +65,7 @@ public class HomeFragment extends BaseFragment {
     private RecyclerView recyclerView3;
     private RecyclerView recyclerView4;
     private List<HomeBean.DataBean.IndexothersBean> indexothers;
+    private AutoLinearLayout clude;
 
 
     private void initview() {
@@ -72,8 +79,11 @@ public class HomeFragment extends BaseFragment {
         title1 = (TextView) view.findViewById(R.id.title1);
         title2 = (TextView) view.findViewById(R.id.title2);
         img = (ImageView) view.findViewById(R.id.list_img);
+        img.setOnClickListener(this);
         img1 = (ImageView) view.findViewById(R.id.list_img1);
+        img1.setOnClickListener(this);
         img2 = (ImageView) view.findViewById(R.id.list_img2);
+        img2.setOnClickListener(this);
         recyclerView1 = (RecyclerView) view.findViewById(R.id.recycleview1);
         recyclerView2 = (RecyclerView) view.findViewById(R.id.recycleview2);
         recyclerView3 = (RecyclerView) view.findViewById(R.id.recycleview3);
@@ -122,6 +132,7 @@ public class HomeFragment extends BaseFragment {
 
     }
 
+    //都在学
     private void everyStudy() {
         indexothers = roolData.getData().getIndexothers();
         RecyclerAdapter<HomeBean.DataBean.IndexothersBean> recyclerAdapter5 = new RecyclerAdapter<HomeBean.DataBean.IndexothersBean>(getActivity(), indexothers, R.layout.other) {
@@ -140,6 +151,19 @@ public class HomeFragment extends BaseFragment {
                 holder.setText(R.id.others_course_price, indexothers.get(position).getCourse_price().equals("0.00") ? "免费" : "￥" + indexothers.get(position).getCourse_price());
                 holder.setText(R.id.others_usercount, indexothers.get(position).getUsercount() + "人在学");
             }
+
+            @Override
+            public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+                super.onBindViewHolder(holder, position);
+                holder.findView(R.id.others_image).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        intent.putExtra("id",indexothers.get(position).getCid());
+                        startActivity(intent);
+                    }
+                });
+            }
         };
         recyclerView4.setLayoutManager(new GridLayoutManager(getActivity(), 1));
         recyclerView4.setAdapter(recyclerAdapter5);
@@ -152,12 +176,25 @@ public class HomeFragment extends BaseFragment {
                 , R.layout.top_item) {
             @Override
             public void convert(RecyclerViewHolder holder, HomeBean.DataBean.IndexrecommendBean.TopBean data, int position) {
-                ImageView imageView = holder.findView(R.id.top_image);
+                ImageView imageView = holder.findView(top_image);
                 Glide.with(getActivity())
                         .load(top.get(position).getCourse_pic())
                         .placeholder(null)
                         .error(null)
                         .into(imageView);
+            }
+
+            @Override
+            public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+                super.onBindViewHolder(holder, position);
+                holder.findView(top_image).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        intent.putExtra("id",top.get(position).getCid());
+                        startActivity(intent);
+                    }
+                });
             }
         };
         recyclerView2.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -168,7 +205,7 @@ public class HomeFragment extends BaseFragment {
         ) {
             @Override
             public void convert(RecyclerViewHolder holder, HomeBean.DataBean.IndexrecommendBean.ListviewBean data, int position) {
-                ImageView imageView = holder.findView(R.id.listiew_image);
+                ImageView imageView = holder.findView(listiew_image);
                 Glide.with(getActivity())
                         .load(listview.get(position).getCourse_pic())
                         .placeholder(null)
@@ -179,8 +216,20 @@ public class HomeFragment extends BaseFragment {
                 TextView textView = holder.findView(R.id.course_price);
                 textView.setTextColor(listview.get(position).getCourse_price().equals("0.00") ? Color.parseColor("#70b30f") : Color.parseColor("#fca59e"));
                 holder.setText(R.id.course_price, listview.get(position).getCourse_price().equals("0.00") ? "免费" : "￥" + listview.get(position).getCourse_price());
-
                 holder.setText(R.id.usercount, listview.get(position).getUsercount() + "人在学");
+            }
+
+            @Override
+            public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+                super.onBindViewHolder(holder, position);
+                holder.findView(listiew_image).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        intent.putExtra("id",listview.get(position).getCid());
+                        startActivity(intent);
+                    }
+                });
             }
         };
         recyclerView3.setLayoutManager(new GridLayoutManager(getActivity(), 1));
@@ -202,8 +251,20 @@ public class HomeFragment extends BaseFragment {
                         .into(imageView);
                 holder.setText(R.id.hor_name, hotcourse.get(position).getName());
                 holder.setText(R.id.hor_title, hotcourse.get(position).getTitle());
+            }
 
+            @Override
+            public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+                super.onBindViewHolder(holder, position);
 
+                holder.findView(R.id.hor_image).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getActivity(), XiangActivity.class);
+                        intent.putExtra("id",hotcourse.get(position).getCid());
+                        startActivity(intent);
+                    }
+                });
             }
         };
         recyclerView1.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -252,10 +313,13 @@ public class HomeFragment extends BaseFragment {
                         .into(imageView);
                 holder.setText(R.id.ho_text, hotcategory.get(position).getCname());
             }
+
+
         };
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         recyclerView.setAdapter(recyclerAdapter);
+
     }
 
     //轮播
@@ -284,5 +348,26 @@ public class HomeFragment extends BaseFragment {
     @Override
     public View setTitleView() {
         return null;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.list_img:
+                Intent intent=new Intent(getActivity(),XiangActivity.class);
+                intent.putExtra("id",adlist.get(0).getUrl());
+                startActivity(intent);
+                break;
+            case R.id.list_img1:
+                Intent intent1=new Intent(getActivity(),XiangActivity.class);
+                intent1.putExtra("id",adlist.get(1).getUrl());
+                startActivity(intent1);
+                break;
+            case R.id.list_img2:
+                Intent intent2=new Intent(getActivity(),XiangActivity.class);
+                intent2.putExtra("id",adlist.get(2).getUrl());
+                startActivity(intent2);
+                break;
+        }
     }
 }

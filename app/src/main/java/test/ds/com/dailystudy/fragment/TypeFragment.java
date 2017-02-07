@@ -285,6 +285,6 @@ public class TypeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public View setTitleView() {
-        return sort_top_search;
+        return null;
     }
 }

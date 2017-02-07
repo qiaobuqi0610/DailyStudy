@@ -21,5 +21,7 @@
     <color name="course_detail_bg">#525252</color>
     <color name="text_normal_color">#666666</color>
     <color name="pop_out">#77000000</color>
+    <color name="base_color_text_black">#3e3e39</color>
+    <color name="base_color_text_white">#ffffff</color>
 
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import test.ds.com.dailystudy.R;
 import test.ds.com.dailystudy.activity.GeRenActivity;
 import test.ds.com.dailystudy.activity.MineLoginActivity;
+import test.ds.com.dailystudy.activity.ShezhiActivity;
 import test.ds.com.dailystudy.adapter.MineListViewAdapter;
 import test.ds.com.dailystudy.base.BaseFragment;
 import test.ds.com.dailystudy.bean.MineBean;
@@ -84,6 +86,15 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
     private void initview() {
         view = View.inflate(getActivity(), R.layout.fragment_mine, null);
         listView = (ListView) view.findViewById(R.id.lv);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i)
+                {
+                    case 5:tiao(ShezhiActivity.class);
+                }
+            }
+        });
         old = (AutoLinearLayout) view.findViewById(R.id.old);
         old.setOnClickListener(this);
         later = (AutoLinearLayout) view.findViewById(R.id.later);
@@ -125,8 +136,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
             title_name.setText(name);
             Glide.with(MineFragment.this)
                     .load(icon)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .error(R.mipmap.ic_launcher)
+                    .placeholder(null)
+                    .error(null)
                     .into(touxiang);
 
 
@@ -137,5 +148,10 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         }
 
 
+    }
+    public  void  tiao (Class v)
+    {
+        Intent intent=new Intent(getActivity(),v);
+        startActivity(intent);
     }
 }
